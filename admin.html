@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador da Loja</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-admin">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Área administrativa local</span>
+      <a class="topbar-link" href="index.html">Ver loja</a>
+    </div>
+  </div>
+
+  <header class="header compact">
+    <div class="container header-inner">
+      <a class="brand" href="admin.html">
+        <span class="brand-mark">⚙️</span>
+        <div>
+          <strong>Administrador</strong>
+          <small>Marca branca</small>
+        </div>
+      </a>
+      <div class="actions">
+        <button id="resetBtn" class="btn btn-light" type="button">Restaurar padrão</button>
+        <a class="btn btn-dark" href="index.html">Abrir loja</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div class="dashboard-grid">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="section-label">Identidade</span>
+          <h2>Textos que o cliente vai ver</h2>
+        </div>
+
+        <div class="form-grid">
+          <label>Nome da loja
+            <input id="storeName" type="text">
+          </label>
+          <label>Frase superior
+            <input id="storeSubtitle" type="text">
+          </label>
+          <label>WhatsApp (com DDI e DDD)
+            <input id="whatsapp" type="text">
+          </label>
+          <label>Badge do banner
+            <input id="heroBadge" type="text">
+          </label>
+          <label>Título principal
+            <input id="heroTitle" type="text">
+          </label>
+          <label>Texto principal
+            <input id="heroText" type="text">
+          </label>
+          <label>Texto botão 1
+            <input id="heroButton1" type="text">
+          </label>
+          <label>Texto botão 2
+            <input id="heroButton2" type="text">
+          </label>
+          <label>Texto do rodapé
+            <input id="footerText" type="text">
+          </label>
+        </div>
+      </section>
+
+      <aside class="sidecards">
+        <div class="panel mini">
+          <span class="section-label">Como usar</span>
+          <p>Edite os textos, altere preços, adicione produtos e clique em salvar.</p>
+        </div>
+        <div class="panel mini">
+          <span class="section-label">Publicação</span>
+          <p>Esta área salva no navegador e também exporta um arquivo JSON para backup.</p>
+        </div>
+      </aside>
+    </div>
+
+    <section class="panel panel-spaced">
+      <div class="panel-head panel-actions">
+        <div>
+          <span class="section-label">Produtos</span>
+          <h2>Cadastro simples</h2>
+        </div>
+        <button id="addProductBtn" class="btn btn-primary" type="button">Adicionar produto</button>
+      </div>
+
+      <div id="productEditorList" class="editor-list"></div>
+
+      <div class="admin-toolbar">
+        <button id="saveBtn" class="btn btn-dark" type="button">Salvar alterações</button>
+        <button id="exportBtn" class="btn btn-light" type="button">Exportar backup JSON</button>
+        <label class="btn btn-light file-btn">
+          Importar backup JSON
+          <input id="importInput" type="file" accept="application/json">
+        </label>
+      </div>
+      <p id="adminMessage" class="admin-message"></p>
+    </section>
+  </main>
+
+  <script src="products.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
