@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestão | Fast Fashion Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">🛍️ <span>Fast Fashion Store</span></a>
+      <nav class="nav">
+        <a href="index.html">Loja</a>
+        <a href="#calc">Precificação</a>
+        <a href="#custos">Custos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Gestão</span>
+        <h1>Painel local de custos, margem e marketplaces</h1>
+        <p>Funciona direto no navegador. Você altera os custos e já vê o preço ideal por canal.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <section class="panel" id="custos">
+          <h2>Configuração base</h2>
+          <div class="form-grid two-cols">
+            <label>Frete padrão
+              <input type="number" id="frete" value="25" step="0.01">
+            </label>
+            <label>Embalagem
+              <input type="number" id="embalagem" value="2" step="0.01">
+            </label>
+            <label>Ads (%)
+              <input type="number" id="ads" value="5" step="0.01">
+            </label>
+            <label>Imposto (%)
+              <input type="number" id="imposto" value="5" step="0.01">
+            </label>
+            <label>Margem alvo (%)
+              <input type="number" id="margem" value="20" step="0.01">
+            </label>
+            <label>Taxa fixa Shopee/Amazon
+              <input type="number" id="taxaFixa" value="5" step="0.01">
+            </label>
+          </div>
+          <button class="btn btn-primary full" id="saveSettings">Salvar configuração</button>
+        </section>
+
+        <section class="panel" id="calc">
+          <h2>Calculadora de preço</h2>
+          <div class="form-grid two-cols">
+            <label>Produto
+              <input type="text" id="produto" placeholder="Ex: Sutiã DeMillus">
+            </label>
+            <label>Custo do produto
+              <input type="number" id="custo" placeholder="0,00" step="0.01">
+            </label>
+            <label>Marketplace
+              <select id="marketplace">
+                <option value="site">Site</option>
+                <option value="shopee">Shopee</option>
+                <option value="mercadolivre">Mercado Livre</option>
+                <option value="amazon">Amazon</option>
+              </select>
+            </label>
+            <label>Comissão marketplace (%)
+              <input type="number" id="comissao" value="0" step="0.01">
+            </label>
+          </div>
+          <button class="btn btn-primary full" id="calcButton">Calcular preço ideal</button>
+          <div class="result-card" id="resultCard">
+            <div><span>Preço ideal</span><strong id="precoIdeal">R$ 0,00</strong></div>
+            <div><span>Lucro líquido estimado</span><strong id="lucroLiquido">R$ 0,00</strong></div>
+            <div><span>Margem real</span><strong id="margemReal">0%</strong></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel panel-table">
+        <div class="row-between">
+          <h2>Tabela rápida por marketplace</h2>
+          <button class="btn btn-secondary" id="addToList">Adicionar ao histórico</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Canal</th>
+                <th>Custo total base</th>
+                <th>Preço ideal</th>
+                <th>Lucro líquido</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="gestao.js"></script>
+</body>
+</html>
